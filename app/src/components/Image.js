@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { getImg} from "../actions";
 
 
-const Image = ({ getImg, file, isFetching, error }) => {
+const Image = ({ getImg, message, isFetching, error }) => {
   useEffect(() => {
     getImg();
   }, [getImg]);
@@ -13,15 +13,15 @@ const Image = ({ getImg, file, isFetching, error }) => {
   }
   return (
     <div className="cat-photo">
-      <button onClick={getImg}>Click to see another cat image</button>
-      <img src={file} />
+      <button onClick={getImg}>Click to see another dog image</button>
+      <img src={message} alt="catPic"/>
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
-    file: state.file,
+    message: state.message,
     isFetching: state.isFetching,
     error: state.error,
   };

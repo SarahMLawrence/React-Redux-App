@@ -7,7 +7,7 @@ import {
 
 const initialState = {
   loading: false,
-  file: null,
+  message: null,
   fact: null,
   isFetching: false,
   error: "",
@@ -25,7 +25,7 @@ export const reducer = (state = initialState, action) => {
     case FETCHING_IMG_SUCCESS:
       return {
         ...state,
-        file: action.payload,
+        message: action.payload,
         isFetching: false,
       };
 

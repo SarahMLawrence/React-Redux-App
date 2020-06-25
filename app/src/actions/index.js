@@ -16,17 +16,19 @@ const headers ={
 export const getImg = () => dispatch => {
     dispatch({ type: FETCHING_IMG_START });
     axios
-    .get("https://aws.random.cat/meow", { headers })
+    
+    .get("https://dog.ceo/api/breeds/image/random", { headers })
+    //"https://aws.random.cat/meow"
     .then(res => {
         console.log(res);
-        dispatch({ type: FETCHING_IMG_SUCCESS, payload: res.data.file });
+        dispatch({ type: FETCHING_IMG_SUCCESS, payload: res.data.message });
     })
     .catch(err => {
         console.log(err);
-        dispatch({
-            type: FETCHING_IMG_FAILURE,
-            payload: err.response.message
-        });
+        // dispatch({
+        //     type: FETCHING_IMG_FAILURE,
+        //     payload: err.response.message
+        // });
     });
 };
 
@@ -41,9 +43,9 @@ export const getFact = () => dispatch => {
     })
     .catch(err => {
         console.log(err);
-        dispatch({
-            type: FETCHING_FACT_FAILURE,
-            payload: err.response.message
-        });
+        // dispatch({
+        //     type: FETCHING_FACT_FAILURE,
+        //     payload: err.response
+        // });
     });
 };
